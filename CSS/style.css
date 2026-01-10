@@ -1,0 +1,60 @@
+body {
+  background-color: #111;
+  color: #e0e0e0;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 40px;
+}
+
+/* Headings */
+h1 {
+  color: #f2f2f2;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #b0b0b0;
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+.button {
+  display: inline-block; 
+  background-color: grey;       
+  color: #f2f2f2;             
+  border: 1px solid #555;
+  padding: 12px 24px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Button hover effect */
+.button:hover {
+  background-color: darkgrey;   
+}
+
+/* Button click effect */
+.button:active {
+  background-color: #888;       
+}
+
+/* Text under buttons */
+.button + div{
+  color: white;                 
+  margin-top: 5px;
+}
+
+/* Link */
+a {
+  color: rgb(105, 105, 175);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+}
