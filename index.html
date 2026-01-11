@@ -2,117 +2,91 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock-Paper-Scissor</title>
-    <link rel="stylesheet" href="CSS/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock-Paper-Scissor</title>
+  <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
-    <h1>My First Game</h1>
-    <h2>Rock Paper Scissor</h2>
-    <div class="button">
-        <button onclick="const randomNumber1 = Math.random();
-
-        let computerMove = '';
-
-        if (randomNumber1 >= 0 && randomNumber1 < 1/3 )
-        {
-            computerMove = 'Rock';
-        }
-        else if (randomNumber1 >= 1/3 && randomNumber1 < 2/3)
-        {
-            computerMove = 'Paper';
-        }
-        else
-        {
-            computerMove = 'Scissor';
-        }
-        if(computerMove === 'Rock')
-        {
-            alert('Tie between computer and you');
-        }
-        else if(computerMove === 'Scissor')
-        {
-            alert('Çongrats!! You Won');
-        }
-        else{
-            alert('Computer Won, Try again');
-        }
-        console.log('Computer : ' + computerMove);
-        console.log('You      : ' + 'Rock');
-        ">Rock
-        </button>
-    </div>
-    <div class="button">
-        <button onclick="const randomNumber2 = Math.random()
-
-        let computerMove1 = '';
-         if (randomNumber2 >= 0 && randomNumber2 < 1/3 )
-        {
-            computerMove1 = 'Rock';
-        }
-        else if (randomNumber2 >= 1/3 && randomNumber2 < 2/3)
-        {
-            computerMove1 = 'Paper';
-        }
-        else
-        {
-            computerMove1 = 'Scissor';
-        }
-        if(computerMove1 === 'Rock')
-        {
-            alert('Çongrats!! You Won');
-        }
-        else if(computerMove1 === 'Scissor')
-        {
-            alert('Computer Won, Try again');
-        }
-        else
-        {
-            alert('Tie between computer and you!!');
-        }
-        console.log('Computer : ' + computerMove1);
-        console.log('You      : ' + 'Paper');
+  <h1>My First Game</h1>
+  <h2>Rock Paper Scissor</h2>
+  <div class="button">
+    <button onclick="
+      playGame('Rock'); 
+      ">Rock
+    </button>
+  </div>
+  <div class="button">
+    <button onclick="
+        playGame('Paper');
         ">Paper
-        </button>
-    </div>
-    <div class="button">
-        <button onclick="const randomNumber3 = Math.random()
-         let computerMove3 = '';
-         if (randomNumber3 >= 0 && randomNumber3 < 1/3 )
-        {
-            computerMove3 = 'Rock';
-        }
-        else if (randomNumber3 >= 1/3 && randomNumber3 < 2/3)
-        {
-            computerMove3 = 'Paper';
-        }
-        else
-        {
-            computerMove3 = 'Scissor';
-        }
-        if(computerMove3 === 'Rock')
-        {
-            alert('Computer Won, Try again');
-        }
-        else if(computerMove3 === 'Scissor')
-        {
-            alert('Tie between computer and you!!');
-        }
-        else
-        {
-            alert('Çongrats!! You Won');
-        }
-        console.log('Computer : ' + computerMove3);
-        console.log('You      : ' + 'Scissor');
+    </button>
+  </div>
+  <div class="button">
+    <button onclick="
+        playGame('Scissor');
         ">Scissor
-        </button>
-    </div>
-    <br>
-    <a href="">Click here</a> to see the final version of the project
-    <br>
-    (The Project is in Progress)
+    </button>
+  </div>
+  <br>
+  <a href="">Click here</a> to see the final version of the project
+  <br>
+  (The Project is in Progress)
+
+  <script>
+    function pickComputerMove() {
+      let Move = '';
+      const randomNumber = Math.random();
+      if (randomNumber >= 0 && randomNumber < 1 / 3) {
+        Move = 'Rock';
+      }
+      else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+        Move = 'Paper';
+      }
+      else {
+        Move = 'Scissor';
+      }
+      return Move;
+    }
+
+    function playGame(playerMove) {
+      let computerMove = pickComputerMove();
+      if (playerMove === 'Rock') {
+        if (computerMove === 'Rock') {
+          alert('Tie between computer and you');
+        }
+        else if (computerMove === 'Scissor') {
+          alert('Çongrats!! You Won');
+        }
+        else {
+          alert('Computer Won, Try again');
+        }
+      }
+      else if (playerMove === 'Paper') {
+        if (computerMove === 'Rock') {
+          alert('Çongrats!! You Won');
+        }
+        else if (computerMove === 'Scissor') {
+          alert('Computer Won, Try again');
+        }
+        else {
+          alert('Tie between computer and you!!');
+        }
+      }
+      else {
+        if (computerMove === 'Rock') {
+          alert('Computer Won, Try again');
+        }
+        else if (computerMove === 'Scissor') {
+          alert('Tie between computer and you!!');
+        }
+        else {
+          alert('Çongrats!! You Won');
+        }
+      }
+    }
+  </script>
 </body>
 
 </html>
