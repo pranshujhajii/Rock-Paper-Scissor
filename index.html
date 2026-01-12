@@ -29,12 +29,30 @@
         ">Scissor
     </button>
   </div>
+  <div class="button">
+    <button onclick="reset()">Reset Score</button>
+  </div>
   <br>
   <a href="">Click here</a> to see the final version of the project
   <br>
   (The Project is in Progress)
 
   <script>
+    let result = '';
+    const score = JSON.parse(localStorage.getItem('Score')) ||
+    {
+      Wins: 0,
+      Losses: 0,
+      Tie: 0
+    };
+    function reset() {
+      localStorage.removeItem('Score');
+      score.Wins = 0;
+      score.Losses = 0;
+      score.Tie = 0;
+
+      localStorage.setItem('Score',JSON.stringify(score))
+    }
     function pickComputerMove() {
       let Move = '';
       const randomNumber = Math.random();
@@ -49,44 +67,55 @@
       }
       return Move;
     }
-
     function playGame(playerMove) {
       let computerMove = pickComputerMove();
       if (playerMove === 'Rock') {
         if (computerMove === 'Rock') {
-          alert('Tie between computer and you');
+          result = 'Tie';
         }
         else if (computerMove === 'Scissor') {
-          alert('Çongrats!! You Won');
+          result = 'You Won!!';
         }
         else {
-          alert('Computer Won, Try again');
+          result = 'Computer Won';
         }
       }
       else if (playerMove === 'Paper') {
         if (computerMove === 'Rock') {
-          alert('Çongrats!! You Won');
+          result = 'You Won!!';
         }
         else if (computerMove === 'Scissor') {
-          alert('Computer Won, Try again');
+          result = 'Computer Won';
         }
         else {
-          alert('Tie between computer and you!!');
+          result = 'Tie';
         }
       }
       else {
         if (computerMove === 'Rock') {
-          alert('Computer Won, Try again');
+          result = 'Computer Won';
         }
         else if (computerMove === 'Scissor') {
-          alert('Tie between computer and you!!');
+          result = 'Tie';
         }
         else {
-          alert('Çongrats!! You Won');
+          result = 'You Won!!';
         }
       }
+      if (result === 'You Won!!') {
+        score.Wins += 1;
+      }
+      else if (result === 'Computer Won') {
+        score.Losses += 1;
+      }
+      else {
+        score.Tie += 1;
+      }
+      localStorage.setItem('Score',JSON.stringify(score));
+      alert(`You Picked ${playerMove}. Computer Picked ${computerMove}
+      Wins: ${score.Wins} Losses: ${score.Losses} Tie: ${score.Tie}`);
     }
   </script>
 </body>
 
-</html>
+</html> why my score resets when ever i refresh the page
